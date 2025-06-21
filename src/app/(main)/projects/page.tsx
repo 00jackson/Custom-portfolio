@@ -1,70 +1,100 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaTerminal, FaCode, FaDumbbell, FaServer, FaGithub } from 'react-icons/fa'
-import { GiWeightLiftingUp, GiWaterDrop, GiMuscleUp } from 'react-icons/gi'
+import { FaTerminal, FaCode, FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { GiWeightLiftingUp, GiWaterDrop } from 'react-icons/gi'
 import { IoFastFood } from 'react-icons/io5'
-import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTensorflow, SiMongodb } from 'react-icons/si'
+import { SiNextdotjs, SiJavascript, SiTailwindcss, SiPostgresql, SiReact, SiMongodb, SiNodedotjs, SiExpress } from 'react-icons/si'
 
 const projects = [
   {
-    title: "FitTrack AI",
-    description: "Computer vision form analysis for weightlifting",
-    tags: ["React", "TensorFlow", "Node"],
-    tech: [FaCode, SiTensorflow, SiNodedotjs],
-    command: "projects --show --id=fittrack",
-    color: "#e67e22" // Carb Orange
+    title: "Mockview AI",
+    description: "Built a mock interview app with AI-generated answers and real-time camera assessments",
+    achievements: [
+      "Integrated Gemini AI for intelligent responses",
+      "Optimized PostgreSQL database queries",
+      "Implemented real-time analysis features"
+    ],
+    tags: ["Next.js", "JavaScript", "TailwindCSS", "PostgreSQL", "Gemini AI"],
+    tech: [SiNextdotjs, SiJavascript, SiTailwindcss, SiPostgresql],
+    links: [
+      { icon: FaExternalLinkAlt, url: "#", text: "Demo" },
+      { icon: FaGithub, url: "#", text: "Code" }
+    ],
+    command: "projects --show --id=mockview",
+    color: "#2ecc71", // Green
+    year: "July 2024"
   },
   {
-    title: "CodeGym",
-    description: "Gamified coding challenges with workout integration",
-    tags: ["Next.js", "TypeScript", "MongoDB"],
-    tech: [SiNextdotjs, SiTypescript, SiMongodb],
-    command: "projects --show --id=codegym",
-    color: "#2ecc71" // Synthex Green
+    title: "Conversa",
+    description: "Developed a chatbot with recent chats and fast response features",
+    achievements: [
+      "Integrated Google Gemini AI API",
+      "Implemented chat history functionality",
+      "Optimized for mobile responsiveness"
+    ],
+    tags: ["React", "Vite", "CSS", "Gemini API"],
+    tech: [SiReact, SiJavascript],
+    links: [
+      { icon: FaExternalLinkAlt, url: "#", text: "Demo" },
+      { icon: FaGithub, url: "#", text: "Code" }
+    ],
+    command: "projects --show --id=conversa",
+    color: "#9b59b6", // Purple
+    year: "May 2024"
   },
   {
-    title: "HealthHub",
-    description: "Wellness dashboard with biometric integration",
-    tags: ["React", "D3.js", "Firebase"],
-    tech: [FaCode, FaServer, FaDumbbell],
-    command: "projects --show --id=healthhub",
-    color: "#9b59b6" // Protein Purple
+    title: "Swoop",
+    description: "Created a real-time chat app with group and single chat functionalities",
+    achievements: [
+      "Implemented authentication system",
+      "Developed search features",
+      "Optimized MongoDB queries"
+    ],
+    tags: ["MongoDB", "Express", "React", "Node.js", "Chakra UI"],
+    tech: [SiMongodb, SiExpress, SiReact, SiNodedotjs],
+    links: [
+      { icon: FaExternalLinkAlt, url: "#", text: "Live" },
+      { icon: FaGithub, url: "#", text: "Code" }
+    ],
+    command: "projects --show --id=swoop",
+    color: "#e67e22", // Orange
+    year: "April 2024"
   }
 ]
 
 export default function Projects() {
   return (
     <div className="min-h-screen bg-[#2c3e50] text-white font-mono overflow-hidden">
-      {/* Fitness Visualization Background */}
+      {/* Background Animation */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-20"
+          className="absolute top-1/4 left-4 md:left-20"
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         >
-          <GiWeightLiftingUp className="text-[200px] text-[#e67e22]" />
+          <GiWeightLiftingUp className="text-[80px] sm:text-[120px] md:text-[200px] text-[#e67e22]" />
         </motion.div>
         <motion.div
-          className="absolute bottom-1/3 right-20"
+          className="absolute bottom-1/3 right-4 md:right-20"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 8, repeat: Infinity, delay: 1 }}
         >
-          <GiWaterDrop className="text-[150px] text-blue-400" />
+          <GiWaterDrop className="text-[60px] sm:text-[100px] md:text-[150px] text-blue-400" />
         </motion.div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6 py-24">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-24">
         {/* Terminal-style Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-20 text-center"
+          className="mb-8 sm:mb-12 md:mb-20"
         >
-          <div className="bg-[#34495e] p-4 rounded-lg border-l-4 border-[#2ecc71] max-w-3xl mx-auto">
-            <p className="text-[#9b59b6] text-left">$ projects --list --featured</p>
-            <h1 className="text-5xl md:text-7xl font-bold mt-4">
+          <div className="bg-[#34495e] p-3 sm:p-4 rounded-lg border-l-4 border-[#2ecc71] max-w-3xl mx-auto">
+            <p className="text-[#9b59b6] text-xs sm:text-sm md:text-base">$ projects --list --featured</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mt-1 sm:mt-2 md:mt-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2ecc71] to-[#e67e22]">
                 My Projects
               </span>
@@ -72,58 +102,76 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Projects Grid - Mobile first */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               whileHover={{ 
-                y: -10,
-                boxShadow: `0 10px 25px ${project.color}40`
+                y: -5,
+                boxShadow: `0 5px 15px ${project.color}40`
               }}
               className="bg-[#34495e] rounded-xl overflow-hidden border border-[#34495e] hover:border-[${project.color}] transition-all"
             >
               {/* Project Header */}
               <div 
-                className="p-6 flex justify-between items-start"
+                className="p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0"
                 style={{ backgroundColor: `${project.color}20` }}
               >
-                <div className="flex items-center gap-4">
-                  <GiWeightLiftingUp className="text-3xl" style={{ color: project.color }} />
-                  <span className="text-xs text-gray-400 font-mono">$ {project.command}</span>
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <FaCode className="text-xl sm:text-2xl" style={{ color: project.color }} />
+                  <div className="flex-1 sm:flex-none">
+                    <span className="text-xs text-gray-400 font-mono block sm:hidden">{project.year}</span>
+                    <span className="text-xs text-gray-400 font-mono hidden sm:block">$ {project.command}</span>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  {project.tech.map((TechIcon, techIndex) => (
-                    <TechIcon 
-                      key={techIndex} 
-                      className="text-xl text-gray-400 hover:text-white transition-colors" 
-                    />
-                  ))}
+                <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-normal">
+                  <div className="flex gap-2">
+                    {project.tech.map((TechIcon, techIndex) => (
+                      <TechIcon 
+                        key={techIndex} 
+                        className="text-lg sm:text-xl text-gray-400 hover:text-white transition-colors" 
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs text-gray-400 font-mono hidden sm:block">{project.year}</span>
                 </div>
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2" style={{ color: project.color }}>
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
+              <div className="p-4 sm:p-6">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold" style={{ color: project.color }}>
+                    {project.title}
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4">{project.description}</p>
                 
-                {/* Fitness Progress Bar */}
-                <div className="mb-4">
+                {/* Achievements */}
+                <ul className="mt-2 sm:mt-3 space-y-1 sm:space-y-2 text-xs sm:text-sm mb-4 sm:mb-6">
+                  {project.achievements.map((achievement, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-[#2ecc71] mr-2">▹</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Progress Bar - Mobile only */}
+                <div className="md:hidden mb-3">
                   <div className="flex justify-between text-xs text-gray-500 mb-1">
-                    <span>Project Fitness</span>
-                    <span>{(i+1)*25 + 50}%</span>
+                    <span>Project Completion</span>
+                    <span>{100 - (i * 25)}%</span>
                   </div>
-                  <div className="w-full bg-[#2c3e50] rounded-full h-2">
+                  <div className="w-full bg-[#2c3e50] rounded-full h-1.5">
                     <div 
                       className="h-full rounded-full" 
                       style={{ 
-                        width: `${(i+1)*25 + 50}%`,
+                        width: `${100 - (i * 25)}%`,
                         background: project.color
                       }}
                     ></div>
@@ -131,14 +179,34 @@ export default function Projects() {
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                   {project.tags.map(tag => (
                     <span 
                       key={tag} 
-                      className="bg-[#2c3e50] px-3 py-1 rounded-full text-xs border border-[#34495e]"
+                      className="bg-[#2c3e50] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs border border-[#34495e]"
                     >
                       {tag}
                     </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-2 sm:gap-3">
+                  {project.links.map((link, idx) => (
+                    <motion.a
+                      key={idx}
+                      href={link.url}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-1 text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 rounded-lg"
+                      style={{ 
+                        backgroundColor: `${project.color}20`,
+                        border: `1px solid ${project.color}`
+                      }}
+                    >
+                      <link.icon className="text-xs sm:text-sm" />
+                      {link.text}
+                    </motion.a>
                   ))}
                 </div>
               </div>
@@ -148,7 +216,7 @@ export default function Projects() {
 
         {/* Terminal-style Footer */}
         <motion.div 
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 md:mt-20 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -159,36 +227,38 @@ export default function Projects() {
               boxShadow: "0 0 15px rgba(46, 204, 113, 0.5)"
             }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-[#2ecc71] text-[#2ecc71] px-8 py-3 rounded-lg font-bold hover:bg-[#2ecc71] hover:text-[#2c3e50] transition-colors flex items-center gap-2 mx-auto"
+            className="border-2 border-[#2ecc71] text-[#2ecc71] px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-bold hover:bg-[#2ecc71] hover:text-[#2c3e50] transition-colors flex items-center gap-2 mx-auto text-sm sm:text-base"
           >
             <FaTerminal /> $ projects --list --all
           </motion.button>
         </motion.div>
 
-        {/* Nutrition Visualization */}
+        {/* Project Stats Footer */}
         <motion.div
-          className="mt-24 bg-[#34495e] p-6 rounded-lg flex flex-col md:flex-row justify-between items-center"
+          className="mt-12 sm:mt-16 md:mt-24 bg-[#34495e] p-4 sm:p-5 md:p-6 rounded-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-4 mb-4 md:mb-0">
-            <IoFastFood className="text-2xl text-[#e67e22]" />
-            <div>
-              <h4 className="font-bold">Project Fuel</h4>
-              <div className="flex gap-4 text-xs text-gray-400">
-                <span>Coffee: 300ml/day</span>
-                <span>Protein: 150g/day</span>
-                <span>Code: 8hrs/day</span>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <IoFastFood className="text-xl sm:text-2xl text-[#e67e22]" />
+              <div>
+                <h4 className="text-sm sm:text-base font-bold">Project Stats</h4>
+                <div className="flex flex-wrap gap-x-2 sm:gap-x-4 gap-y-1 text-[10px] sm:text-xs text-gray-400">
+                  <span>Next.js: 2 projects</span>
+                  <span>React: 3 projects</span>
+                  <span>AI Integration: 2 projects</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-full md:w-1/2 bg-[#2c3e50] rounded-full h-3">
-            <div 
-              className="h-full rounded-full bg-gradient-to-r from-[#2ecc71] via-[#9b59b6] to-[#e67e22]" 
-              style={{ width: '80%' }}
-            ></div>
+            <div className="w-full md:w-1/2 bg-[#2c3e50] rounded-full h-2 sm:h-3">
+              <div 
+                className="h-full rounded-full bg-gradient-to-r from-[#2ecc71] via-[#9b59b6] to-[#e67e22]" 
+                style={{ width: '85%' }}
+              ></div>
+            </div>
           </div>
         </motion.div>
       </div>

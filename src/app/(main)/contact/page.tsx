@@ -1,7 +1,9 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaTerminal, FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { GiWeightLiftingUp, GiWaterDrop } from 'react-icons/gi'
+import { SiLeetcode } from "react-icons/si";
+import { SiCodechef } from "react-icons/si";
 import { IoFastFood } from 'react-icons/io5'
 
 export default function Contact() {
@@ -61,7 +63,7 @@ export default function Contact() {
                   <h3 className="text-xl font-bold mb-2 flex items-center">
                     <span className="text-[#2ecc71] mr-2">$</span> Email
                   </h3>
-                  <p className="text-gray-400 font-mono">contact@codefit.dev</p>
+                  <p className="text-gray-400 font-mono">jackson.onwork@gmail.com</p>
                 </div>
               </div>
 
@@ -71,7 +73,7 @@ export default function Contact() {
                   <h3 className="text-xl font-bold mb-2 flex items-center">
                     <span className="text-[#2ecc71] mr-2">$</span> Phone
                   </h3>
-                  <p className="text-gray-400 font-mono">+1 (555) 123-4567</p>
+                  <p className="text-gray-400 font-mono">+91-7008018970</p>
                 </div>
               </div>
 
@@ -81,7 +83,7 @@ export default function Contact() {
                   <h3 className="text-xl font-bold mb-2 flex items-center">
                     <span className="text-[#2ecc71] mr-2">$</span> Location
                   </h3>
-                  <p className="text-gray-400 font-mono">San Francisco, CA</p>
+                  <p className="text-gray-400 font-mono">Bhubaneswar, India</p>
                 </div>
               </div>
 
@@ -89,17 +91,20 @@ export default function Contact() {
                 <p className="text-[#2ecc71] mb-4">$ social --connect</p>
                 <div className="flex gap-6">
                   {[
-                    { icon: FaGithub, color: "white", label: "github" },
-                    { icon: FaLinkedin, color: "#0a66c2", label: "linkedin" }
+                    { icon: FaGithub, color: "white", label: "github", url: "https://github.com/yourusername" },
+                    { icon: FaLinkedin, color: "#0a66c2", label: "linkedin", url: "https://linkedin.com/in/yourusername" },
+                    { icon: SiLeetcode, color: "#f5a623", label: "leetcode", url: "https://leetcode.com/yourusername" },
+                    { icon: SiCodechef, color: "#7a7a7a", label: "codechef", url: "https://codechef.com/users/yourusername" }
                   ].map((social, i) => (
                     <motion.a
                       key={i}
                       whileHover={{ y: -5, scale: 1.2 }}
                       className={`text-3xl hover:text-[${social.color}]`}
                       style={{ color: social.color }}
-                      href={`https://${social.label}.com`}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={social.label}
                     >
                       <social.icon />
                     </motion.a>
@@ -115,6 +120,8 @@ export default function Contact() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
             className="bg-[#34495e] p-8 rounded-xl border border-[#9b59b6] border-opacity-30"
+            action="https://formspree.io/f/jackson.onwork@gmail.com"
+            method="POST"
           >
             <p className="text-[#2ecc71] mb-6">$ message --new</p>
             
@@ -125,7 +132,9 @@ export default function Contact() {
                 </label>
                 <input 
                   type="text" 
+                  name="name"
                   className="w-full bg-[#2c3e50] border border-[#34495e] rounded-lg px-4 py-3 focus:border-[#2ecc71] focus:outline-none font-mono"
+                  required
                 />
               </div>
               
@@ -135,7 +144,9 @@ export default function Contact() {
                 </label>
                 <input 
                   type="email" 
+                  name="email"
                   className="w-full bg-[#2c3e50] border border-[#34495e] rounded-lg px-4 py-3 focus:border-[#2ecc71] focus:outline-none font-mono"
+                  required
                 />
               </div>
               
@@ -145,7 +156,9 @@ export default function Contact() {
                 </label>
                 <textarea 
                   rows={5}
+                  name="message"
                   className="w-full bg-[#2c3e50] border border-[#34495e] rounded-lg px-4 py-3 focus:border-[#2ecc71] focus:outline-none font-mono"
+                  required
                 ></textarea>
               </div>
               
@@ -156,12 +169,31 @@ export default function Contact() {
                 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-[#2ecc71] to-[#9b59b6] px-8 py-3 rounded-lg font-bold flex items-center gap-2 w-full justify-center"
+                type="submit"
               >
                 <FaPaperPlane /> $ send --message
               </motion.button>
             </div>
           </motion.form>
         </div>
+
+        {/* Portfolio Link */}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <a 
+            href="https://yourportfolio.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#34495e] hover:bg-[#3d566e] px-6 py-3 rounded-lg font-mono border border-[#2ecc71] border-opacity-30 transition-colors"
+          >
+            $ cd ~/portfolio
+          </a>
+        </motion.div>
 
         {/* Nutrition Visualization Footer */}
         <motion.div
