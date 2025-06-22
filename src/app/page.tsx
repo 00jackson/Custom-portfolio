@@ -220,7 +220,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6">
               {[
-                { value: "5+", label: "YOE", icon: FaCode, color: "#2ecc71" },
+                // { value: "+", label: "YOE", icon: FaCode, color: "#2ecc71" },
                 { value: "405", label: "PR", icon: GiMuscleUp, color: "#e67e22" },
                 { value: "30+", label: "Projects", icon: FaGithub, color: "white" }
               ].map((stat, i) => (
