@@ -4,6 +4,7 @@ import { FaTerminal, FaCode, FaDumbbell, FaHeartbeat, FaBrain, FaServer } from '
 import { GiMuscleUp, GiWeightLiftingUp, GiWaterDrop } from 'react-icons/gi'
 import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql } from 'react-icons/si'
 import { IoFastFood } from 'react-icons/io5'
+import { useEffect, useState } from 'react'
 
 const stats = [
   { 
@@ -49,7 +50,60 @@ const techStack = [
   { name: 'AWS', icon: FaDumbbell, color: 'text-amber-400', command: 'aws --services' }
 ]
 
+// Loading animation component
+const LoadingAnimation = () => {
+  const [activeIcon, setActiveIcon] = useState(0)
+  const icons = [
+    <FaTerminal key="terminal" className="text-4xl text-[#2ecc71]" />,
+    <FaCode key="code" className="text-4xl text-[#3498db]" />,
+    <GiWeightLiftingUp key="weight" className="text-4xl text-[#e67e22]" />,
+    <FaBrain key="brain" className="text-4xl text-[#9b59b6]" />
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIcon((prev) => (prev + 1) % icons.length)
+    }, 800)
+    return () => clearInterval(interval)
+  }, [icons.length])
+
+  return (
+    <motion.div 
+      className="flex justify-center items-center h-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        key={activeIcon}
+        initial={{ scale: 0.5, rotate: -45 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+      >
+        {icons[activeIcon]}
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function About() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[#2c3e50] flex items-center justify-center">
+        <LoadingAnimation />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-[#2c3e50] text-white font-mono overflow-hidden">
       {/* Fitness Visualization Background */}

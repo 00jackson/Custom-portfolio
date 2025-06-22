@@ -1,8 +1,9 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaLaptopCode } from 'react-icons/fa'
-import { GiWaterDrop, GiMuscleUp } from 'react-icons/gi'
+import { FaLaptopCode, FaCode, FaRobot } from 'react-icons/fa'
+import { GiWaterDrop, GiMuscleUp, GiWeightLiftingUp } from 'react-icons/gi'
 import { IoFastFood } from 'react-icons/io5'
+import { useEffect, useState } from 'react'
 
 const timeline = [
   {
@@ -16,7 +17,9 @@ const timeline = [
       "Automated deployment using Docker and CI/CD"
     ],
     skills: ["React", "Node.js", "Docker", "CI/CD"],
-    command: "experience --current --role=sde"
+    command: "experience --current --role=sde",
+    icon: FaLaptopCode,
+    iconColor: "#2ecc71"
   },
   {
     year: "April 2024 - July 2024",
@@ -28,7 +31,9 @@ const timeline = [
       "Participated in code reviews ensuring high-quality code"
     ],
     skills: ["React", "Tailwind CSS", "Responsive Design"],
-    command: "experience --role=frontend"
+    command: "experience --role=frontend",
+    icon: FaCode,
+    iconColor: "#9b59b6"
   },
   {
     year: "Nov 2023 - Feb 2024",
@@ -40,11 +45,66 @@ const timeline = [
       "Built scalable backend services for AI applications"
     ],
     skills: ["Python", "AI/ML", "Data Pipelines"],
-    command: "experience --role=ai"
+    command: "experience --role=ai",
+    icon: FaRobot,
+    iconColor: "#e67e22"
   }
 ]
 
+// Loading animation component
+const LoadingAnimation = () => {
+  const [activeIcon, setActiveIcon] = useState(0)
+  const icons = [
+    <FaLaptopCode key="laptop" className="text-4xl text-[#2ecc71]" />,
+    <FaCode key="code" className="text-4xl text-[#9b59b6]" />,
+    <FaRobot key="ai" className="text-4xl text-[#e67e22]" />,
+    <GiWeightLiftingUp key="growth" className="text-4xl text-[#3498db]" />
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIcon((prev) => (prev + 1) % icons.length)
+    }, 800)
+    return () => clearInterval(interval)
+  }, [icons.length])
+
+  return (
+    <motion.div 
+      className="flex justify-center items-center h-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        key={activeIcon}
+        initial={{ scale: 0.5, rotate: -45 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+      >
+        {icons[activeIcon]}
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function Experience() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[#2c3e50] flex items-center justify-center">
+        <LoadingAnimation />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-[#2c3e50] text-white font-mono overflow-hidden">
       {/* Background Animation */}
@@ -109,7 +169,12 @@ export default function Experience() {
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex items-center gap-2">
-                      <FaLaptopCode className={`text-lg sm:text-xl ${i === 0 ? 'text-[#2ecc71]' : i === 1 ? 'text-[#9b59b6]' : 'text-[#e67e22]'}`} />
+                      <motion.div
+                        whileHover={{ rotate: 15, scale: 1.2 }}
+                        transition={{ type: "spring" }}
+                      >
+                        <item.icon className={`text-lg sm:text-xl`} style={{ color: item.iconColor }} />
+                      </motion.div>
                       <div>
                         <h3 className="text-base sm:text-lg font-bold">{item.role}</h3>
                         <p className="text-xs sm:text-sm text-gray-400 font-mono">{item.company}</p>
@@ -119,21 +184,32 @@ export default function Experience() {
 
                   <ul className="mt-2 sm:mt-3 space-y-1 sm:space-y-2 text-xs sm:text-sm">
                     {item.achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-start">
+                      <motion.li 
+                        key={idx} 
+                        className="flex items-start"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        viewport={{ once: true }}
+                      >
                         <span className="text-[#2ecc71] mr-2">▹</span>
                         <span>{achievement}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
 
                   <div className="mt-3 sm:mt-4 flex flex-wrap gap-1 sm:gap-2">
                     {item.skills.map((skill, idx) => (
-                      <span 
-                        key={idx} 
+                      <motion.span 
+                        key={idx}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ type: "spring", delay: idx * 0.05 }}
+                        viewport={{ once: true }}
                         className="text-[10px] sm:text-xs px-2 py-0.5 sm:px-2 sm:py-1 rounded-full bg-[#2c3e50] border border-[#34495e]"
                       >
                         {skill}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </motion.div>
@@ -149,7 +225,12 @@ export default function Experience() {
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div className="flex items-center gap-2">
-                          <FaLaptopCode className={`text-xl ${i === 0 ? 'text-[#2ecc71]' : i === 1 ? 'text-[#9b59b6]' : 'text-[#e67e22]'}`} />
+                          <motion.div
+                            whileHover={{ rotate: 15, scale: 1.2 }}
+                            transition={{ type: "spring" }}
+                          >
+                            <item.icon className={`text-xl`} style={{ color: item.iconColor }} />
+                          </motion.div>
                           <h3 className="text-xl font-bold">{item.role}</h3>
                         </div>
                         <span className="text-xs text-gray-500">$ {item.command}</span>
@@ -157,20 +238,31 @@ export default function Experience() {
                       <p className="text-gray-400 mb-2 font-mono">{item.company} • {item.year}</p>
                       <ul className="space-y-2 text-sm">
                         {item.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <motion.li 
+                            key={idx} 
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.05 }}
+                            viewport={{ once: true }}
+                          >
                             <span className="text-[#2ecc71] mr-2">▹</span>
                             <span>{achievement}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {item.skills.map((skill, idx) => (
-                          <span 
-                            key={idx} 
+                          <motion.span 
+                            key={idx}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ type: "spring", delay: idx * 0.05 }}
+                            viewport={{ once: true }}
                             className="text-xs px-2 py-1 rounded-full bg-[#2c3e50] border border-[#34495e]"
                           >
                             {skill}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
                     </motion.div>
@@ -202,7 +294,12 @@ export default function Experience() {
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div className="flex items-center gap-2">
-                          <FaLaptopCode className={`text-xl ${i === 0 ? 'text-[#2ecc71]' : i === 1 ? 'text-[#9b59b6]' : 'text-[#e67e22]'}`} />
+                          <motion.div
+                            whileHover={{ rotate: 15, scale: 1.2 }}
+                            transition={{ type: "spring" }}
+                          >
+                            <item.icon className={`text-xl`} style={{ color: item.iconColor }} />
+                          </motion.div>
                           <h3 className="text-xl font-bold">{item.role}</h3>
                         </div>
                         <span className="text-xs text-gray-500">$ {item.command}</span>
@@ -210,20 +307,31 @@ export default function Experience() {
                       <p className="text-gray-400 mb-2 font-mono">{item.company} • {item.year}</p>
                       <ul className="space-y-2 text-sm">
                         {item.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <motion.li 
+                            key={idx} 
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.05 }}
+                            viewport={{ once: true }}
+                          >
                             <span className="text-[#2ecc71] mr-2">▹</span>
                             <span>{achievement}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {item.skills.map((skill, idx) => (
-                          <span 
-                            key={idx} 
+                          <motion.span 
+                            key={idx}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            transition={{ type: "spring", delay: idx * 0.05 }}
+                            viewport={{ once: true }}
                             className="text-xs px-2 py-1 rounded-full bg-[#2c3e50] border border-[#34495e]"
                           >
                             {skill}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
                     </motion.div>
@@ -244,7 +352,12 @@ export default function Experience() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2 sm:gap-3">
-              <IoFastFood className="text-xl sm:text-2xl text-[#e67e22]" />
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <IoFastFood className="text-xl sm:text-2xl text-[#e67e22]" />
+              </motion.div>
               <div>
                 <h4 className="text-sm sm:text-base font-bold">Career Growth</h4>
                 <div className="flex flex-wrap gap-x-2 sm:gap-x-4 gap-y-1 text-[10px] sm:text-xs text-gray-400">
@@ -255,10 +368,13 @@ export default function Experience() {
               </div>
             </div>
             <div className="w-full md:w-1/2 bg-[#2c3e50] rounded-full h-2 sm:h-3">
-              <div 
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: '85%' }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
                 className="h-full rounded-full bg-gradient-to-r from-[#2ecc71] via-[#9b59b6] to-[#e67e22]" 
-                style={{ width: '85%' }}
-              ></div>
+              />
             </div>
           </div>
         </motion.div>
