@@ -17,8 +17,8 @@ const projects = [
     tags: ["Next.js", "JavaScript", "TailwindCSS", "PostgreSQL", "Gemini AI"],
     tech: [SiNextdotjs, SiJavascript, SiTailwindcss, SiPostgresql],
     links: [
-      { icon: FaExternalLinkAlt, url: "#", text: "Demo" },
-      { icon: FaGithub, url: "#", text: "Code" }
+      { icon: FaExternalLinkAlt, url: "https://mockview-six.vercel.app/", text: "Demo" },
+      { icon: FaGithub, url: "https://github.com/00jackson/mockview", text: "Code" }
     ],
     command: "projects --show --id=mockview",
     color: "#2ecc71", // Green
@@ -35,8 +35,8 @@ const projects = [
     tags: ["React", "Vite", "CSS", "Gemini API"],
     tech: [SiReact, SiJavascript],
     links: [
-      { icon: FaExternalLinkAlt, url: "#", text: "Demo" },
-      { icon: FaGithub, url: "#", text: "Code" }
+      { icon: FaExternalLinkAlt, url: "https://conversaa.vercel.app/", text: "Demo" },
+      { icon: FaGithub, url: "https://github.com/00jackson/Conversa", text: "Code" }
     ],
     command: "projects --show --id=conversa",
     color: "#9b59b6", // Purple
@@ -53,8 +53,8 @@ const projects = [
     tags: ["MongoDB", "Express", "React", "Node.js", "Chakra UI"],
     tech: [SiMongodb, SiExpress, SiReact, SiNodedotjs],
     links: [
-      { icon: FaExternalLinkAlt, url: "#", text: "Live" },
-      { icon: FaGithub, url: "#", text: "Code" }
+      { icon: FaExternalLinkAlt, url: "https://swoop.onrender.com/", text: "Live" },
+      { icon: FaGithub, url: "https://github.com/00jackson/Swoop", text: "Code" }
     ],
     command: "projects --show --id=swoop",
     color: "#e67e22", // Orange
