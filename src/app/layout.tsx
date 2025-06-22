@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeFit | Developer & Fitness Portfolio",
+  title: "Jackson Kujur | Developer and Fitness Enthusiast",
   description: "Software engineering meets peak physical performance",
 };
 
