@@ -1,6 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaDumbbell, FaCode, FaHeartbeat } from 'react-icons/fa'
+import { FaDumbbell, FaCode } from 'react-icons/fa'
 import { GiWeightLiftingUp } from 'react-icons/gi'
 import { SiTypescript } from 'react-icons/si'
 

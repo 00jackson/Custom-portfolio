@@ -93,7 +93,7 @@ export default function Contact() {
             <p className="text-[#2ecc71] text-left">$ contact --init</p>
             <h1 className="text-5xl md:text-7xl font-bold mt-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9b59b6] to-[#2ecc71]">
-                Let's Connect
+                Let&apos;s Connect
               </span>
             </h1>
           </div>
