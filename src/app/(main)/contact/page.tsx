@@ -144,10 +144,10 @@ export default function Contact() {
                 <p className="text-[#2ecc71] mb-4">$ social --connect</p>
                 <div className="flex gap-6">
                   {[
-                    { icon: FaGithub, color: "white", label: "github", url: "https://github.com/yourusername" },
-                    { icon: FaLinkedin, color: "#0a66c2", label: "linkedin", url: "https://linkedin.com/in/yourusername" },
-                    { icon: SiLeetcode, color: "#f5a623", label: "leetcode", url: "https://leetcode.com/yourusername" },
-                    { icon: SiCodechef, color: "#7a7a7a", label: "codechef", url: "https://codechef.com/users/yourusername" }
+                    { icon: FaGithub, color: "white", label: "github", url: "https://github.com/00jackson" },
+                    { icon: FaLinkedin, color: "#0a66c2", label: "linkedin", url: "https://www.linkedin.com/in/contact-jacksonkujur" },
+                    { icon: SiLeetcode, color: "#f5a623", label: "leetcode", url: "https://leetcode.com/u/that_guy77" },
+                    { icon: SiCodechef, color: "#7a7a7a", label: "codechef", url: "https://www.codechef.com/users/jackson_7" }
                   ].map((social, i) => (
                     <motion.a
                       key={i}
@@ -239,7 +239,7 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <a 
-            href="https://yourportfolio.com" 
+            href="https://jackson-portfolioco.netlify.app/" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#34495e] hover:bg-[#3d566e] px-6 py-3 rounded-lg font-mono border border-[#2ecc71] border-opacity-30 transition-colors"
