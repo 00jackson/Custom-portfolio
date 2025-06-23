@@ -1,8 +1,8 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaTerminal, FaCode, FaDumbbell, FaHeartbeat, FaBrain, FaServer } from 'react-icons/fa'
+import { FaTerminal, FaCode, FaHeartbeat, FaBrain } from 'react-icons/fa'
 import { GiMuscleUp, GiWeightLiftingUp, GiWaterDrop } from 'react-icons/gi'
-import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql } from 'react-icons/si'
+import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiCss3, SiHtml5, SiSwift, SiCplusplus } from 'react-icons/si'
 import { IoFastFood } from 'react-icons/io5'
 import { useEffect, useState } from 'react'
 
@@ -45,9 +45,10 @@ const techStack = [
   { name: 'Framer', icon: GiWeightLiftingUp, color: 'text-purple-400', command: 'animate --motion' },
   { name: 'React', icon: FaCode, color: 'text-blue-400', command: 'react --create-app' },
   { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-300', command: 'psql --version' },
-  { name: 'GraphQL', icon: FaBrain, color: 'text-pink-500', command: 'graphql --schema' },
-  { name: 'Docker', icon: FaServer, color: 'text-blue-400', command: 'docker --compose' },
-  { name: 'AWS', icon: FaDumbbell, color: 'text-amber-400', command: 'aws --services' }
+  { name: "C++", icon: SiCplusplus,color:'text-cyan-400', command: "lang --cpp" },
+  { name: "Swift", icon: SiSwift,color:'text-purple-400' ,command: "lang --swift" },
+  { name: "HTML", icon: SiHtml5,color:'text-green-400', command: "lang --html" },
+  { name: "CSS", icon: SiCss3, color:'text-blue-400',command: "lang --css" }
 ]
 
 // Loading animation component

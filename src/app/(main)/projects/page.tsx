@@ -43,6 +43,42 @@ const LoadingAnimation = () => {
 
 const projects = [
   {
+    title: "JobLens AI",
+    description: "AI-powered resume matcher that suggests top jobs based on your resume and skills",
+    achievements: [
+      "Uploaded resumes (.txt), extracted keywords and matched against 1000+ job criteria",
+      "Used Gemini Pro for match scoring (1-100) with real-time session history",
+      "Interactive modal UI with result tracking and persistent storage"
+    ],
+    tags: ["Next.js", "TailwindCSS", "Gemini AI", "LocalStorage", "TypeScript"],
+    tech: [SiNextdotjs, SiTailwindcss, SiJavascript],
+    links: [
+      { icon: FaExternalLinkAlt, url: "https://joblensai.netlify.app/", text: "Live" },
+      { icon: FaGithub, url: "https://github.com/00jackson/joblens", text: "Code" }
+    ],
+    command: "projects --show --id=joblens",
+    color: "#1abc9c",
+    year: "June 2025"
+  },
+  {
+    title: "InboxSummary",
+    description: "AI-generated email digest summarizer with task + follow-up extraction",
+    achievements: [
+      "Parsed raw email input and generated structured daily/weekly summaries",
+      "Gemini Flash model to extract highlights, action items, and follow-ups",
+      "Exported results as PDF and optionally to Notion with saved sessions"
+    ],
+    tags: ["Next.js", "TailwindCSS", "Gemini AI", "Notion API", "PDF Export"],
+    tech: [SiNextdotjs, SiTailwindcss, SiJavascript],
+    links: [
+      { icon: FaExternalLinkAlt, url: "https://inbox-summaryai.vercel.app/", text: "Live" },
+      { icon: FaGithub, url: "https://github.com/00jackson/inbox-summaryai", text: "Code" }
+    ],
+    command: "projects --show --id=inboxsummary",
+    color: "#3498db",
+    year: "June 2025"
+  },
+  {
     title: "Mockview AI",
     description: "Built a mock interview app with AI-generated answers and real-time camera assessments",
     achievements: [
