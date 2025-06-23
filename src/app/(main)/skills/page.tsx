@@ -1,10 +1,12 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaTerminal, FaCode, FaServer, FaDatabase, FaJava, FaBrain } from 'react-icons/fa'
-import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiMongodb, SiMysql, SiGit, SiGithub, SiVercel, SiNetlify, SiPostman, SiPython, SiCplusplus, SiSwift, SiHtml5, SiCss3, SiJavascript,SiShadcnui } from 'react-icons/si'
-import { DiReact } from 'react-icons/di'
+import { FaTerminal, FaCode, FaServer, FaDatabase, FaJava, FaBrain, FaBook } from 'react-icons/fa'
+import { SiTypescript, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiPostgresql, SiMongodb, SiMysql, SiGit, SiGithub, SiVercel, SiNetlify, SiPostman, SiPython, SiCplusplus, SiSwift, SiHtml5, SiCss3, SiJavascript,SiShadcnui, SiKnowledgebase } from 'react-icons/si'
+import { DiGoogleCloudPlatform, DiReact } from 'react-icons/di'
+import { FaBookAtlas } from "react-icons/fa6";
 import { useState, useEffect } from 'react'
 import { GiWeightLiftingUp } from 'react-icons/gi'
+import { BsRobot } from "react-icons/bs";
 
 const LoadingAnimation = () => {
   const [activeIcon, setActiveIcon] = useState(0)
@@ -76,7 +78,7 @@ const skillCategories = [
   },
   {
     title: "Tools & Platforms",
-    icon: FaTerminal,
+    icon: DiGoogleCloudPlatform,
     color: "#e67e22",
     skills: [
       { name: "Git", icon: SiGit, command: "tools --git" },
@@ -104,14 +106,14 @@ const skillCategories = [
   },
   {
     title: "CS Fundamentals",
-    icon: FaTerminal,
+    icon: SiKnowledgebase,
     color: "#f1c40f",
     skills: [
-      { name: "Data Structures", icon: FaTerminal, command: "cs --dsa" },
-      { name: "Algorithms", icon: FaTerminal, command: "cs --algo" },
-      { name: "DBMS", icon: FaTerminal, command: "cs --dbms" },
-      { name: "OOP", icon: FaTerminal, command: "cs --oop" },
-      { name: "GenAI", icon: FaTerminal, command: "cs --genai" }
+      { name: "Data Structures", icon: FaBook, command: "cs --dsa" },
+      { name: "Algorithms", icon: FaBook, command: "cs --algo" },
+      { name: "DBMS", icon: FaBook, command: "cs --dbms" },
+      { name: "OOP", icon: FaBookAtlas, command: "cs --oop" },
+      { name: "GenAI", icon: BsRobot, command: "cs --genai" }
     ]
   }
 ]
