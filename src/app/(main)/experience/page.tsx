@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 const timeline = [
   {
-    year: "Sept 2024 - Present",
+    year: "Sept 2024 - March 2025",
     role: "Software Development Engineer",
     company: "Custom Kicks",
     achievements: [
