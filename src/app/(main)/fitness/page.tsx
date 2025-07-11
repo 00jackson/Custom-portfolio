@@ -231,7 +231,7 @@ export default function Fitness() {
                 Code. Lift. Repeat.
               </span>
             </h1>
-            <p className="text-gray-400 mt-1 text-sm text-left">// 5x/week: Push, Pull, Legs, Push, Pull & Core</p>
+            <p className="text-gray-400 mt-1 text-sm text-left">{'// 5x/week: Push, Pull, Legs, Push, Pull & Core'}</p>
           </div>
         </motion.div>
 
@@ -345,12 +345,12 @@ export default function Fitness() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {trainingPrinciples.map((principle, i) => (
+            {trainingPrinciples.map((principle, index) => (
               <motion.div
-                key={i}
+                key={index}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i }}
+                transition={{ delay: 0.1 * index }}
                 className="bg-[#2c3e50] p-4 rounded border border-[#34495e]"
               >
                 <div className="flex items-center gap-2 mb-2">
