@@ -115,7 +115,7 @@ export default function Fitness() {
     },
     {
       day: "Friday",
-      type: "Pull & Core",
+      type: "Pull and Core",
       icon: <FaHeartbeat className="text-base text-[#e74c3c]" />,
       exercises: [
         "Deadlifts: 4x5-8",
