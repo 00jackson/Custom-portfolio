@@ -345,12 +345,12 @@ export default function Fitness() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {trainingPrinciples.map((principle, index) => (
+            {trainingPrinciples.map((principle, _) => (
               <motion.div
-                key={index}
+                key={principle.title}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ delay: 0.1 * _ }}
                 className="bg-[#2c3e50] p-4 rounded border border-[#34495e]"
               >
                 <div className="flex items-center gap-2 mb-2">
