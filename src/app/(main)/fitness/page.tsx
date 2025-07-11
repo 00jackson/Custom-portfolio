@@ -266,9 +266,9 @@ export default function Fitness() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ staggerChildren: 0.1 }}
         >
-          {fitnessStats.map((stat, i) => (
+          {fitnessStats.map((stat) => (
             <motion.div
-              key={i}
+              key={stat.command}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               whileHover={{ y: -5 }}
