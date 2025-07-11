@@ -1,11 +1,12 @@
 "use client"
 import { motion } from 'framer-motion'
-import { FaTerminal, FaCode, FaDumbbell, FaHeartbeat, FaGithub } from 'react-icons/fa'
+import { FaTerminal, FaCode, FaHeartbeat, FaGithub } from 'react-icons/fa'
 import { GiMuscleUp, GiWaterDrop, GiWeightLiftingUp } from 'react-icons/gi'
 import { SiTypescript, SiNextdotjs, SiNodedotjs } from 'react-icons/si'
 import { IoFastFood } from 'react-icons/io5'
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
+import Link from 'next/link'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ export default function Home() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="min-h-screen bg-[#2c3e50] text-white overflow-x-hidden font-mono">
+    <div className="min-h-screen bg-[#2c3e50] text-white overflow-hidden font-mono">
       {/* Terminal-inspired background elements */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <motion.div
@@ -166,7 +167,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <FaCode /> $ projects --show
+              {/* TODO: Add a link to the projects page */}
+              <Link href="/projects">
+                $ projects --show 
+              </Link>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(230, 126, 34, 0.5)' }}
@@ -176,7 +180,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
             >
-              <FaDumbbell /> $ fitness --routine
+              {/* TODO: Add a link to the fitness page */}
+              <Link href="/fitness">
+                $ fitness --routine
+              </Link>
             </motion.button>
           </div>
 
