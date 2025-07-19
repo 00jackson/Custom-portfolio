@@ -153,7 +153,7 @@ export default function Fitness() {
             <h3 className="text-lg">$ workout_routine</h3>
           </div>
           <div className="grid grid-cols-1 gap-2">
-            {workoutRoutine.map((day, i) => (
+            {workoutRoutine.map((day) => (
               <motion.div
                 key={day.day}
                 initial={{ opacity: 0 }}
@@ -193,7 +193,7 @@ export default function Fitness() {
             <h3 className="text-lg">$ training_principles</h3>
           </div>
           <div className="grid grid-cols-1 gap-2">
-            {trainingPrinciples.map((principle, i) => (
+            {trainingPrinciples.map((principle) => (
               <motion.div
                 key={principle.title}
                 initial={{ opacity: 0 }}
