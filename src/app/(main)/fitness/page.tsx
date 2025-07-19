@@ -23,7 +23,7 @@ const LoadingAnimation = () => {
 
   return (
     <motion.div 
-      className="flex justify-center items-center h-16"
+      className="flex justify-center items-center h-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
