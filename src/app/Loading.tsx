@@ -12,36 +12,37 @@ export default function Loading() {
   const [shouldExit, setShouldExit] = useState(false)
 
   const bootSequence = [
-    { 
-      icon: Terminal, 
-      text: 'Jackson@portfolio:~$ init --system', 
+    {
+      icon: Terminal,
+      text: 'Jackson@portfolio:~$ init --system',
       color: '#2ecc71',
       delay: 0
     },
-  
-    { 
-      icon: Code, 
-      text: '✓ React.js modules loaded', 
+    {
+      icon: Code,
+      text: 'Loading developer.exe...',
       color: '#3498db',
       delay: 1000
     },
-    { 
-      icon: Heart, 
-      text: '✓ Health vitals connected', 
+    
+    {
+      icon: Heart,
+      text: 'Syncing fitness tracker...',
       color: '#e67e22',
       delay: 800
     },
-    { 
-      icon: Dumbbell, 
-      text: '✓ Gains protocol activated', 
+
+    {
+      icon: Dumbbell,
+      text: '✓ Gains protocol activated',
       color: '#9b59b6',
       delay: 500
     },
-    { 
-      icon: Terminal, 
-      text: 'System ready. Welcome to Jackson Kujur\'s portfolio!', 
+    {
+      icon: Terminal,
+      text: 'System ready. Welcome to Jackson Kujur\'s portfolio!',
       color: '#2ecc71',
-      delay: 250
+      delay: 200
     }
   ]
 
@@ -70,18 +71,19 @@ export default function Loading() {
       }
 
       const step = bootSequence[stepIndex]
-      
+
       setTimeout(() => {
         typeText(step.text, () => {
           setTimeout(() => {
             setCurrentStep(stepIndex + 1)
             processStep(stepIndex + 1)
-          }, 50)
+          }, 200)
         })
       }, step.delay)
     }
 
     processStep(0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Add prop to handle loading completion
@@ -91,8 +93,14 @@ export default function Loading() {
 
   // Expose loading state to parent component
   useEffect(() => {
-    if (shouldExit && (window as any).onLoadingComplete) {
-      (window as any).onLoadingComplete()
+    interface WindowWithCallback extends Window {
+      onLoadingComplete?: () => void;
+    }
+
+    const windowWithCallback = window as WindowWithCallback;
+
+    if (shouldExit && windowWithCallback.onLoadingComplete) {
+      windowWithCallback.onLoadingComplete();
     }
   }, [shouldExit])
 
@@ -168,7 +176,7 @@ export default function Loading() {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-[#2c3e50] flex items-center justify-center z-50 overflow-hidden"
+      className="fixed inset-0 bg-[#1a1a1a] flex items-center justify-center z-50 overflow-hidden"
       variants={pageVariants}
       initial="initial"
       animate={shouldExit ? "exit" : "initial"}
@@ -180,9 +188,9 @@ export default function Loading() {
         animate="animate"
         style={{
           backgroundImage: `repeating-linear-gradient(
-            43deg,
+            45deg,
             transparent,
-            transparent 1px,
+            transparent 2px,
             #2ecc71 2px,
             #2ecc71 4px
           )`,
@@ -294,7 +302,7 @@ export default function Loading() {
             >
               Jackson Kujur
             </motion.span>
-            
+
             {/* Subtitle */}
             <motion.div
               className="text-center mt-3"
