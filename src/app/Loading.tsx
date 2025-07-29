@@ -1,6 +1,6 @@
 "use client"
 import { motion, Variants } from 'framer-motion'
-import { Terminal, Code, Heart, Dumbbell } from 'lucide-react'
+import { Terminal, Code, Dumbbell } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 export default function Loading() {
