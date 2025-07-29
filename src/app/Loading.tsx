@@ -22,7 +22,7 @@ export default function Loading() {
       icon: Code,
       text: 'Loading developer.exe...',
       color: '#3498db',
-      delay: 1000
+      delay: 800
     },
     
     {
@@ -77,7 +77,7 @@ export default function Loading() {
           setTimeout(() => {
             setCurrentStep(stepIndex + 1)
             processStep(stepIndex + 1)
-          }, 200)
+          }, 100)
         })
       }, step.delay)
     }
