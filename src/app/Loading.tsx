@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Code, Dumbbell, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
+interface WindowWithCallback {
+  onLoadingComplete?: () => void;
+}
+
 export default function Loading() {
   const [progress, setProgress] = useState(0)
   const [shouldExit, setShouldExit] = useState(false)
@@ -17,8 +21,9 @@ export default function Loading() {
           // Auto continue after brief pause
           setTimeout(() => {
             setShouldExit(true)
-            if (typeof window !== 'undefined' && (window as any).onLoadingComplete) {
-              (window as any).onLoadingComplete()
+            const windowWithCallback = window as unknown as WindowWithCallback;
+            if (windowWithCallback.onLoadingComplete) {
+              windowWithCallback.onLoadingComplete()
             }
           }, 300)
           return 100
@@ -33,8 +38,9 @@ export default function Loading() {
   const handleClick = () => {
     if (progress >= 100) {
       setShouldExit(true)
-      if (typeof window !== 'undefined' && (window as any).onLoadingComplete) {
-        (window as any).onLoadingComplete()
+      const windowWithCallback = window as unknown as WindowWithCallback;
+      if (windowWithCallback.onLoadingComplete) {
+        windowWithCallback.onLoadingComplete()
       }
     }
   }
@@ -49,6 +55,8 @@ export default function Loading() {
           transition={{ duration: 0.3 }}
         >
           <div className="flex flex-col items-center justify-center w-full max-w-sm px-4">
+            {/* Minimal progress circle */}
+        
 
             {/* Progress text */}
             <div className="text-center mb-4">
@@ -78,7 +86,7 @@ export default function Loading() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className={`text-normal ${progress >= (i + 1) * 33 ? 'opacity-100' : 'opacity-30'}`}
+                  className={`text-sm ${progress >= (i + 1) * 33 ? 'opacity-100' : 'opacity-30'}`}
                   animate={progress >= (i + 1) * 33 ? { scale: [1, 1.1, 1] } : {}}
                   transition={{ duration: 0.3 }}
                 >
