@@ -1,6 +1,6 @@
 "use client"
 import { motion, AnimatePresence } from 'framer-motion'
-import { Terminal, Code, Dumbbell, Heart } from 'lucide-react'
+import { Code, Dumbbell, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function Loading() {
@@ -49,18 +49,6 @@ export default function Loading() {
           transition={{ duration: 0.3 }}
         >
           <div className="flex flex-col items-center justify-center w-full max-w-sm px-4">
-            {/* Minimal progress circle */}
-            {/* <div className="relative mb-6">
-              <div className="w-20 h-20 rounded-full border-2 border-[#34495e]"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  animate={{ rotate: 0 }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                >
-                  <Terminal className="w-8 h-8 text-[#2ecc71]" />
-                </motion.div>
-              </div>
-            </div> */}
 
             {/* Progress text */}
             <div className="text-center mb-4">
